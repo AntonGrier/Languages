@@ -9,7 +9,8 @@ class App extends Component {
     }
 
     render() {
-        return <div className="app"></div>;
+        return <div className="app">
+                </div>;
     }
 }
 
