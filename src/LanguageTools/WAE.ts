@@ -1,4 +1,3 @@
-import { assert } from "console";
 import Env from "./Env";
 import { EnvValue, numV, funV } from "./Env"; 
 
@@ -6,6 +5,7 @@ abstract class WAE {
     public abstract interpret(env: Env): EnvValue;
 }
 
+// temporary until type-system
 let combineNumbers = (v1: EnvValue, v2: EnvValue, combineFunc: (n1: number, n2: number) => number) => {
     if (v1 !instanceof numV || v2 !instanceof numV) throw new Error(`At least one of ${v1} or ${v2} is not a number type`);
     let n1: number = (v1 as numV).getVal();
@@ -14,11 +14,13 @@ let combineNumbers = (v1: EnvValue, v2: EnvValue, combineFunc: (n1: number, n2: 
     return new numV(value);
 }
 
+// temporary until type-system
 let addValue = (v1: EnvValue, v2: EnvValue) => {
     let func = (n1: number, n2: number) => {return n1 + n2};
     return combineNumbers(v1, v2, func);
 }
 
+// temporary until type-system
 let subValue = (v1: EnvValue, v2: EnvValue) => {
     let func = (n1: number, n2: number) => {return n1 - n2};
     return combineNumbers(v1, v2, func);
