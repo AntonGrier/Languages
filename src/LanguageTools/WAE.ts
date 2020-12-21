@@ -69,10 +69,10 @@ class sub extends WAE {
 }
 
 class With extends WAE {
-    id: Symbol;
+    id: string;
     named : WAE;
     body: WAE;
-    constructor(id: Symbol, named: WAE, body: WAE) {
+    constructor(id: string, named: WAE, body: WAE) {
         super();
         this.id = id;
         this.named = named;
