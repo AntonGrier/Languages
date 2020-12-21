@@ -16,10 +16,10 @@ class numV extends EnvValue {
 }
 
 class funV extends EnvValue {
-    id: Symbol;
+    id: string;
     body: WAE;
     envCall: Env;
-    constructor(id: Symbol, body: WAE, envCall: Env) {
+    constructor(id: string, body: WAE, envCall: Env) {
         super();
         this.id = id;
         this.body = body;
@@ -28,7 +28,7 @@ class funV extends EnvValue {
 }
 
 interface SymbolValueMapping {
-    sym: Symbol;
+    sym: string;
     val: EnvValue;
 }
 
@@ -38,13 +38,13 @@ class Env {
         this.mappings = mappings ? mappings : [];
     }
 
-    public extend(x: Symbol, val: EnvValue): Env {
+    public extend(x: string, val: EnvValue): Env {
         let newMappings: SymbolValueMapping[] = this.mappings;
         newMappings.push({sym: x, val: val});
         return new Env(newMappings);
     }
 
-    public lookup(x: Symbol): EnvValue {
+    public lookup(x: string): EnvValue {
         for (let mapping of this.mappings) {
             if (mapping.sym === x) {
                 return mapping.val;

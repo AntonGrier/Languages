@@ -87,8 +87,8 @@ class With extends WAE {
 }
 
 class id extends WAE {
-    id: Symbol;
-    constructor(id: Symbol) {
+    id: string;
+    constructor(id: string) {
         super();
         this.id = id;
     } 
@@ -100,3 +100,4 @@ class id extends WAE {
 }
 
 export default WAE;
+export {num, add, sub, With, id}
